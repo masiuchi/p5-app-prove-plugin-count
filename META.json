@@ -10,7 +10,7 @@
    ],
    "meta-spec" : {
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
-      "version" : "2"
+      "version" : 2
    },
    "name" : "App-Prove-Plugin-Count",
    "no_index" : {
@@ -57,7 +57,18 @@
       }
    },
    "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/masiuchi/p5-app-prove-plugin-count/issues"
+      },
+      "homepage" : "https://github.com/masiuchi/p5-app-prove-plugin-count",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/masiuchi/p5-app-prove-plugin-count.git",
+         "web" : "https://github.com/masiuchi/p5-app-prove-plugin-count"
+      }
+   },
    "version" : "0.01",
    "x_authority" : "cpan:MASIUCHI",
-   "x_serialization_backend" : "JSON::PP version 2.27400_02"
+   "x_serialization_backend" : "JSON::PP version 2.94"
 }
