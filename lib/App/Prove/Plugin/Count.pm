@@ -13,11 +13,11 @@ my $total_file_count;
 my $current_file_count = 0;
 
 sub load {
-    around 'App::Prove::_runtests' => sub {
-        my $orig = shift;
-        my ( $self, $args, @tests ) = @_;
+    around 'App::Prove::_get_tests' => sub {
+        my $orig  = shift;
+        my @tests = $orig->(@_);
         $total_file_count = scalar @tests;
-        return $orig->(@_);
+        return @tests;
     };
     around 'TAP::Formatter::Base::_format_name' => sub {
         my $orig = shift;
