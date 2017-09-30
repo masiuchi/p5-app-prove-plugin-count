@@ -29,3 +29,6 @@ cover_db/
 MYMETA.*
 
 /App-Prove-Plugin-Count-*
+
+.perl-version
+
