@@ -14,9 +14,9 @@ is exception {
 
     my ( $stdout_get, $stderr_get ) = capture { $app->run };
 
-    like $stdout_get, qr{\[1/2\] tests/test1\.t \.\. ok},
+    like $stdout_get, qr{\[1/2\] tests[/\\]test1\.t \.\. ok},
         'add test counts to first test';
-    like $stdout_get, qr{\[2/2\] tests/test2\.t \.\. ok},
+    like $stdout_get, qr{\[2/2\] tests[/\\]test2\.t \.\. ok},
         'add test counts to second test';
     is $stderr_get, "", "no error output";
 },
