@@ -10,8 +10,7 @@ use App::Prove;
 
 is exception {
     my $app = App::Prove->new;
-    $app->process_args( '--norc', '-PCount', 'tests/test1.t',
-        'tests/test2.t' );
+    $app->process_args( '--norc', '-j1', '-PCount', 'tests' );
 
     my ( $stdout_get, $stderr_get ) = capture { $app->run };
 
