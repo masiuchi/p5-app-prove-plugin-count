@@ -2,6 +2,10 @@ Revision history for Perl extension App-Prove-Plugin-Count
 
 {{$NEXT}}
 
+0.02_02 2017-10-07T08:15:25Z
+
+    - Try to fix failed t/prove.t when --jobs options is set in HARNESS_OPTIONS
+
 0.02_01 2017-10-02T12:50:49Z
  
     - Try to fix failed t/prove.t on some environment
