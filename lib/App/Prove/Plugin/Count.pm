@@ -13,19 +13,35 @@ my $total_file_count;
 my $current_file_count = 0;
 
 sub load {
+    my ( $class, $p ) = @_;
+    my $is_percent = $p->{args}->[0] && $p->{args}->[0] eq 'percent';
+
     around 'App::Prove::_get_tests' => sub {
         my $orig  = shift;
         my @tests = $orig->(@_);
         $total_file_count = scalar @tests;
         return @tests;
     };
+
     around 'TAP::Formatter::Base::_format_name' => sub {
         my $orig = shift;
         my $ret  = $orig->(@_);
         $current_file_count++;
-        my $spacer = " "
-            x ( length($total_file_count) - length($current_file_count) );
-        return "[$spacer$current_file_count/$total_file_count] $ret";
+
+        my $counter;
+        if ($is_percent) {
+            my $percent
+                = int( $current_file_count / $total_file_count * 100 );
+            my $spacer = " " x ( 3 - length($percent) );
+            $counter = "[$spacer$percent%]";
+        }
+        else {
+            my $spacer = " "
+                x ( length($total_file_count) - length($current_file_count) );
+            $counter = "[$spacer$current_file_count/$total_file_count]";
+        }
+
+        return "$counter $ret";
     };
 }
 
